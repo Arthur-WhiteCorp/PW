@@ -1,0 +1,53 @@
+body {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap
+}
+
+
+.tabuada {
+	display: flex;
+	flex-direction: column;
+	border: thin black solid;
+	width: 140px;
+	margin: 20px;
+}
+
+.tabuada h1 {
+	font-size: 20px;
+	display: flex;
+	border: thin black solid;
+	margin: 2px;
+	margin-bottom: 0px;
+	justify-content: center;
+}
+
+.tabuada .corpo {
+	display: flex;
+	flex-direction: column;
+	margin: 2px;
+	justify-content: center;
+}
+
+.tabuada .linha {
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	justify-content: center;
+}
+
+.tabuada .linha p {
+	display: flex;
+	border: thin black solid;
+	margin: 1px 0.5px;
+	justify-content: center;
+}
+
+.tabuada .linha .expression {
+	width: 70%;
+
+}
+
+.tabuada .linha .result {
+	width: 30%;
+}

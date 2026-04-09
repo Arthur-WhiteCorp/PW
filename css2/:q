@@ -1,0 +1,20 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url(nebulosa-do-anel-sul-forma-1.jpg);
+	background-position-y: -400px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+body div {
+	color: white;
+	margin-top: 80px;
+	margin-left: 40px;
+	width: 13%;
+	height: 700px;
+	border: 15px solid orange;
+	border-radius: 30px;
+	background-color: black;
+	padding: 20px;
+}

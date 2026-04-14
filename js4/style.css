@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+.dados {
+    display: flex;
+    flex-flow: row wrap;
+    width: 300px;
+    height: 120px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dados input {
+    height: 30px;
+}
+
+.dados p {
+    margin: 0;
+    width: 100px;
+    text-align: right;
+
+}

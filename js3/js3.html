@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IntegerSet Test</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>IntegerSet Test</h1>
+    <div id="test-results"></div>
+    <div id="set-state"></div>
+
+    <script>
+      // Function to display test results
+      function displayTestResults(results) {
+        const testResultsDiv = document.getElementById("test-results");
+        testResultsDiv.innerHTML = "";
+        results.forEach((result) => {
+          const resultElement = document.createElement("p");
+          resultElement.textContent = result ? "PASS" : "FAIL";
+          testResultsDiv.appendChild(resultElement);
+        });
+      }
+
+      // Function to display the set state
+      function displaySetState(set, message) {
+        const setStateDiv = document.getElementById("set-state");
+        const stateElement = document.createElement("p");
+        stateElement.textContent = `${message}: ${set.toString()}`;
+        setStateDiv.appendChild(stateElement);
+      }
+
+      // Test cases for IntegerSet class
+      function runTests() {
+        const setSize = 10;
+        const intSetA = new IntegerSet(setSize, [
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+        ]);
+        const intSetB = new IntegerSet(setSize, [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+        ]);
+
+        displaySetState(intSetA, "Initial Set A State");
+        displaySetState(intSetB, "Initial Set B State");
+
+        // Test add method
+        intSetA.add(5);
+        const addTestResult = intSetA.contains(5);
+        displaySetState(intSetA, "After adding 5 to Set A");
+
+        // Test remove method
+        intSetA.remove(5);
+        const removeTestResult = !intSetA.contains(5);
+        displaySetState(intSetA, "After removing 5 from Set A");
+
+        // Test contains method
+        const nonExistentElementTestResult = !intSetA.contains(3);
+        intSetA.add(3);
+        const existentElementTestResult = intSetA.contains(3);
+        displaySetState(intSetA, "After adding 3 to Set A");
+
+        // Test size property
+        const sizeTestResult = intSetA.size === setSize;
+
+        // Test union method
+        const unionSet = IntegerSet.union(intSetA, intSetB);
+        const unionTestResult =
+          unionSet.toString() === "1, 1, 1, 1, 1, 1, 1, 1, 1, 1";
+        displaySetState(unionSet, "Union of Set A and Set B");
+
+        // Test intersection method
+        const intersectionSet = IntegerSet.intersection(intSetA, intSetB);
+        const intersectionTestResult =
+          intersectionSet.toString() === "0, 0, 0, 0, 0, 0, 0, 0, 0, 0";
+        displaySetState(intersectionSet, "Intersection of Set A and Set B");
+
+        // Test difference method
+        const differenceSetAtoB = IntegerSet.difference(intSetA, intSetB);
+        const differenceTestResultAtoB =
+          differenceSetAtoB.toString() === "1, 1, 0, 0, 1, 1, 0, 0, 1, 1";
+        displaySetState(differenceSetAtoB, "Difference of Set A and Set B");
+
+        const differenceSetBtoA = IntegerSet.difference(intSetB, intSetA);
+        const differenceTestResultBtoA =
+          differenceSetBtoA.toString() === "0, 0, 1, 1, 0, 0, 1, 1, 0, 0";
+        displaySetState(differenceSetBtoA, "Difference of Set B and Set A");
+
+        // Collect all test results
+        const testResults = [
+          addTestResult,
+          removeTestResult,
+          nonExistentElementTestResult,
+          existentElementTestResult,
+          sizeTestResult,
+          unionTestResult,
+          intersectionTestResult,
+          differenceTestResultAtoB,
+          differenceTestResultBtoA,
+        ];
+
+        // Display test results
+        displayTestResults(testResults);
+      }
+
+      // Run tests when the page loads
+      window.onload = runTests;
+    </script>
+  </body>
+</html>

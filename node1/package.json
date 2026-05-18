@@ -1,16 +1,17 @@
 {
-  "name": "pw",
-  "version": "1.0.0",
-  "description": "",
-  "main": "node1.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "dotenv": "^17.4.2"
-  }
+	"name": "pw",
+	"version": "1.0.0",
+	"description": "",
+	"main": "node1.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node node1.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"dependencies": {
+		"dotenv": "^17.4.2"
+	}
 }

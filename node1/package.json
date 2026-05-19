@@ -4,8 +4,8 @@
 	"description": "",
 	"main": "node1.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node node1.js"
+		"start": "NODE_ENV=development npx nodemon src/node1.js",
+		"start:prod": "NODE_ENV=production node src/node1.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -13,5 +13,8 @@
 	"type": "commonjs",
 	"dependencies": {
 		"dotenv": "^17.4.2"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.14"
 	}
 }

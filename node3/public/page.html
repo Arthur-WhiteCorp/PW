@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gerador de Lorem Ipsum</h1>
+    </header>
+    <main>
+      <p>Gerador de Lorem Ipsum</p>
+      <form id="loremForm">
+        <label for="para">Parágrafos:</label><br />
+        <input type="number" id="para" name="para" value="" /><br />
+        <input type="submit" value="Submit" />
+      </form>
+
+      <div
+        id="result"
+        style="margin-top: 20px; padding: 10px; border-top: 1px solid #ccc"
+      ></div>
+    </main>
+  </body>
+  <script>
+    document
+      .getElementById("loremForm")
+      .addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const paraCount = document.getElementById("para").value;
+
+        const response = await fetch("/generate-lorem", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `para=${paraCount}`,
+        });
+
+        const html = await response.text();
+        document.getElementById("result").innerHTML = html;
+      });
+  </script>
+</html>

@@ -12,7 +12,8 @@
 	"license": "ISC",
 	"type": "module",
 	"dependencies": {
-		"dotenv": "^17.4.2"
+		"dotenv": "^17.4.2",
+		"lorem-ipsum": "^3.0.0"
 	},
 	"devDependencies": {
 		"nodemon": "^3.1.14"
